@@ -1,2 +1,19 @@
+#librerias de API Rest
 node_modules/
+
+#Archivos de estado de Terraform 
+*.tfstate
+*.tfstate.*
+
+#Carpeta de plugins 
+.terraform/
+
+#Archivos de variables sensibles
+*.tfvars
+*.tfvars.json
+
+#Archivos de respaldo y logs
+.terraform.lock.hcl
+*.log
+
 

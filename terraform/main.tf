@@ -1,4 +1,30 @@
-/* Network*/
+#Dibujamos los recursos
+
+#Traemos información del grupo de recursos ya existente en Azure
+#se usa data cuando el recurso existe
+#se usa resource cuando se esta creando el GR
+
+data "azurerm_resource_group" "existing" {
+  name = var.resource_group_name
+}
+
+#Creación del ACR usando los datos del grupo
+resource "azurerm_container_registry" "acr" {
+  name = var.acr_name
+  resource_group_name = data.azurerm_resource_group.existing.name
+  location = var.location
+  sku = var.acr_sku
+  admin_enabled = var.acr_admin_enabled
+
+  tags = {
+    Enviroment = "Test"
+    Project = "Project-Cloud"
+  }
+}
+
+
+
+/* Network
 
 #Grupo de recursos
 resource "azurerm_resource_group" "rg" {
@@ -27,9 +53,8 @@ resource "azurerm_subnet" "subnet" {
 }
 
 
-/*   */
 
-/*  ACR */
+/*  ACR 
 
 # Obtener el Resource Group existente
 data "azurerm_resource_group" "existing" {
@@ -82,3 +107,4 @@ resource "azurerm_role_assignment" "aks_acr_pull_identity" {
   scope                            = azurerm_container_registry.acr.id
   skip_service_principal_aad_check = true
 }
+*/

@@ -1,4 +1,4 @@
-resource "azurerm_virtual_network" "vnet" {
+/*resource "azurerm_virtual_network" "vnet" {
   name                = "vnet-jeni-${random_integer.suffix.result}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
@@ -10,4 +10,4 @@ resource "azurerm_subnet" "aks_subnet" {
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
-}
+}*/

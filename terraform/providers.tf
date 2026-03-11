@@ -1,3 +1,4 @@
+#Generamos la conexion de Terraform  con azure
 terraform {
   required_version = ">= 1.7.0"
 
